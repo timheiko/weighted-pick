@@ -16,7 +16,12 @@ export class WeightedPick {
         this.#weights = weights;
 
         // [[start1, end1), [start2, end2), ...]
-        const totalWeight = weights.reduce((acc, w) => acc + w.weight, 0);
+        const totalWeight = weights.reduce((acc, w) => {
+            if (isNaN(w.weight)) {
+                throw new Error('NaN weight is not allowed');
+            }
+            return acc + w.weight;
+        }, 0);
 
         this.#ranges = [];
         let runningSum = 0;

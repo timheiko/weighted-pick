@@ -76,6 +76,12 @@ describe('WeightedPick', () => {
     expect(values).toHaveLength(n); // sanity check
     console.table(Object.fromEntries(histogram(values)));
   });
+
+  test('fails on NaN weight', () => {
+    expect(() => new WeightedPick([
+      new WeightedValue(2, NaN)
+    ])).toThrowError(/NaN weight is not allowed/);
+  });
 });
 
 function histogram (values) {
