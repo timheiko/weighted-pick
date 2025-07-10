@@ -23,6 +23,13 @@ module.exports = {
     ecmaVersion: 'latest'
   },
   rules: {
-    semi: [ 'error', 'always' ]
+    semi: [ 'error', 'always' ],
+    "comma-dangle": ["error", {
+        arrays: "always-multiline",
+        objects: "never",
+        imports: "never",
+        exports: "never",
+        functions: "always-multiline"
+    }]
   }
 }
