@@ -90,8 +90,8 @@ describe('WeightedPick', () => {
     [-1],
     [{}],
     [true],
-  ])('fails on non-array weights: %s', () => {
-    expect(() => new WeightedPick(null)).toThrowError(/Weights is not an array/);
+  ])('fails on non-array weights: %s', (weight) => {
+    expect(() => new WeightedPick(weight)).toThrowError(/Weights is not an array/);
   });
 
   test('fails on empty weights', () => {
