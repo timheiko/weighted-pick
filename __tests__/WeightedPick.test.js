@@ -4,7 +4,7 @@ describe('WeightedPick', () => {
   test('2 values, 50%/50%, 1K times', () => {
     const picker = new WeightedPick([
       new WeightedValue(0, 1),
-      new WeightedValue(1, 1)
+      new WeightedValue(1, 1),
     ]);
 
     const n = 1000;
@@ -17,7 +17,7 @@ describe('WeightedPick', () => {
   test('2 values, 33%/66%, 1K times', () => {
     const picker = new WeightedPick([
       new WeightedValue(0, 1),
-      new WeightedValue(1, 2)
+      new WeightedValue(1, 2),
     ]);
 
     const n = 1000;
@@ -33,7 +33,7 @@ describe('WeightedPick', () => {
       new WeightedValue(1, 1),
       new WeightedValue(2, 1),
       new WeightedValue(3, 1),
-      new WeightedValue(4, 1)
+      new WeightedValue(4, 1),
     ]);
 
     const n = 1000;
@@ -49,7 +49,7 @@ describe('WeightedPick', () => {
       new WeightedValue(1, 10),
       new WeightedValue(2, 30),
       new WeightedValue(3, 25),
-      new WeightedValue(4, 25)
+      new WeightedValue(4, 25),
     ]);
 
     const n = 1000;
@@ -67,7 +67,7 @@ describe('WeightedPick', () => {
       new WeightedValue(15, 506),
       new WeightedValue(20, 318),
       new WeightedValue(35, 52),
-      new WeightedValue(50, 3)
+      new WeightedValue(50, 3),
     ]);
 
     const n = 1000;
@@ -79,7 +79,7 @@ describe('WeightedPick', () => {
 
   test('fails on NaN weight', () => {
     expect(() => new WeightedPick([
-      new WeightedValue(2, NaN)
+      new WeightedValue(2, NaN),
     ])).toThrowError(/NaN weight is not allowed/);
   });
 
@@ -89,7 +89,7 @@ describe('WeightedPick', () => {
     ['a string'],
     [-1],
     [{}],
-    [true]
+    [true],
   ])('fails on non-array weights: %s', () => {
     expect(() => new WeightedPick(null)).toThrowError(/Weights is not an array/);
   });
